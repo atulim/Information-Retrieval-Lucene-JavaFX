@@ -14,7 +14,7 @@ import java.net.URL;
 
 public class ChangeScene {
     public static void change(Class callingClass, Stage stage, String fxml, String title) throws IOException{
-        AnchorPane anchorPane = null;
+        AnchorPane anchorPane;
         // we get a reference to the fxml file.
         URL url = callingClass.getResource(fxml);
         FXMLLoader fxmlLoader = new FXMLLoader(url);
@@ -31,7 +31,7 @@ public class ChangeScene {
         // we create the scene
         Scene scene = new Scene(anchorPane,bounds.getWidth(),bounds.getHeight());
         // we display the program icon
-        stage.getIcons().add(new Image("file:Information_Retrieval_Icon.png"));
+        stage.getIcons().add(new Image(ChangeScene.class.getResourceAsStream("/Information_Retrieval_Icon.png")));
         scene.setFill(Color.TRANSPARENT);
         // we set the title
         stage.setTitle(title);

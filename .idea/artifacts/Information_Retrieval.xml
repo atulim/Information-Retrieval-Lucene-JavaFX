@@ -8,7 +8,7 @@
         <option name="htmlPlaceholderId" value="" />
         <option name="icons">
           <JavaFxApplicationIcons>
-            <option name="windowsIcon" value="$PROJECT_DIR$/Information_Retrieval_Icon.ico" />
+            <option name="windowsIcon" value="$PROJECT_DIR$/resources/Information_Retrieval_Icon.ico" />
           </JavaFxApplicationIcons>
         </option>
         <option name="nativeBundle" value="all" />
