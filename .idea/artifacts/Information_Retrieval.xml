@@ -1,0 +1,29 @@
+<component name="ArtifactManager">
+  <artifact type="javafx" name="Information-Retrieval">
+    <output-path>$PROJECT_DIR$/out/artifacts/Information_Retrieval</output-path>
+    <properties id="javafx-properties">
+      <options>
+        <option name="appClass" value="unipi.information_retrieval.Main" />
+        <option name="description" value="" />
+        <option name="htmlPlaceholderId" value="" />
+        <option name="icons">
+          <JavaFxApplicationIcons>
+            <option name="windowsIcon" value="$PROJECT_DIR$/Information_Retrieval_Icon.ico" />
+          </JavaFxApplicationIcons>
+        </option>
+        <option name="nativeBundle" value="all" />
+        <option name="title" value="" />
+        <option name="vendor" value="" />
+        <option name="version" value="" />
+      </options>
+    </properties>
+    <root id="root">
+      <element id="archive" name="Information_Retrieval.jar">
+        <element id="module-output" name="Information-Retrieval" />
+      </element>
+      <element id="file-copy" path="$PROJECT_DIR$/libs/lucene-core-7.7.0.jar" />
+      <element id="file-copy" path="$PROJECT_DIR$/libs/lucene-analyzers-common-7.7.0.jar" />
+      <element id="file-copy" path="$PROJECT_DIR$/libs/lucene-queryparser-7.7.0.jar" />
+    </root>
+  </artifact>
+</component>
