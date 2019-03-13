@@ -48,6 +48,7 @@ public class SearchLimitOneCosine {
     private static void initializeVariables(String queryString,
                                             PorterStemAnalyzer porterStemAnalyzer,
                                             Directory leaderIndexDirectory) throws ParseException, IOException {
+        queryString = QueryParser.escape(queryString);
         q = new QueryParser("title", porterStemAnalyzer).parse(queryString);
         indexReader = DirectoryReader.open(leaderIndexDirectory);
         indexSearcher = new IndexSearcher(indexReader);

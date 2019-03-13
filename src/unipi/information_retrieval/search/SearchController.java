@@ -76,6 +76,7 @@ public class SearchController {
          */
         try {
         String query= queryTextField.getText();
+        query = "title:" + query + " OR summary:" + query + " OR authors:" + query;
         SearchResult simpleSearchResult = new SimpleSearch().executeQuery(query);
         ObservableList<SearchViewModel> observableList = FXCollections.observableArrayList();
         populateObservableList(simpleSearchResult,observableList);

@@ -30,7 +30,7 @@ public class ClusterPruningSearch {
 
     private String executeLeaderQuery(String queryString) throws IOException, ParseException {
         // we create the queryString for the leaderIndex cosine search
-        queryString = "summary:" + queryString + " OR authors:" + queryString;
+        queryString = "title: " +queryString + " OR summary:" + queryString + " OR authors:" + queryString;
         // we execute the cosine search and get back a single document
         Document d = SearchLimitOneCosine.getHit(queryString,porterStemAnalyzer,leaderIndexDirectory);
         if(d!=null) {
@@ -42,7 +42,7 @@ public class ClusterPruningSearch {
     public SearchResult executeQuery(String query) throws IOException, ParseException {
         String clusterid = executeLeaderQuery(query);
         if(clusterid != null) {
-            String queryString = "(summary:" + query + " OR authors:" + query + ") AND cluster:" + clusterid;
+            String queryString = "(title:" + query + " OR summary:" + query + " OR authors:" + query + ") AND cluster:" + clusterid;
             Query q = null;
             q = new QueryParser("title", porterStemAnalyzer).parse(queryString);
             // The search

@@ -109,7 +109,7 @@ public class ChartsController {
              */
             for(String id: resultQuery){
                 //if the id is contained in the qrels file
-                if(expectedResultIds.contains(id))
+                if(expectedResultIds!=null && expectedResultIds.contains(id))
                 {
                     counterFoundMatchingIds++;
                 }
@@ -135,7 +135,7 @@ public class ChartsController {
          */
         List<String> result = new ArrayList<>();
         try {
-            String queryString = "summary:" + query+ " OR authors:" + query;
+            String queryString = "title:"+query+ " OR summary:" + query+ " OR authors:" + query;
             SearchResult searchResult = new SimpleSearch().executeQuery(query);
             // we get the result
             ScoreDoc[] hits = searchResult.getHits();

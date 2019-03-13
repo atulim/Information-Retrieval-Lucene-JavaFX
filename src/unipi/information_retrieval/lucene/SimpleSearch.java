@@ -28,7 +28,7 @@ public class SimpleSearch {
     public SearchResult executeQuery(String query) throws IOException, ParseException {
         if(!query.equals("")) {
             // we create the query string
-            String queryString = "summary:" + query + " OR authors:" + query;
+            String queryString = QueryParser.escape(query);
             Query q = null;
             // we parse the query using the PorterStemAnalyzer
             q = new QueryParser("title", porterStemAnalyzer).parse(queryString);

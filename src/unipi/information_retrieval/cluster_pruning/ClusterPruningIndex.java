@@ -80,13 +80,15 @@ public class ClusterPruningIndex extends ExtractFromCacmAll {
         // this is the method on which we assign a leader to each document in the ClusterIndex
         for(int i = 0; i<documents.size(); i++) {
                 // we create the queryString for each document in the List documents
-                String queryString = "summary:" + doc.get("summary") + " OR authors:" + doc.get("authors");
+                String queryString = "title:" + documents.get(i).get("title") + " OR summary:" + documents.get(i).get("summary") + " OR authors:" + documents.get(i).get("authors");
                 // we execute the cosine similarity search and get back one document
                 Document d = SearchLimitOneCosine.getHit(queryString,porterStemAnalyzer,leaderIndex);
                 // we set the field <<cluster>> of the document
-                Field clusterField = new TextField("cluster", d.get("id"), Field.Store.YES);
-                // we add the field to the documents List
-                documents.get(i).add(clusterField);
+                if(d!=null) {
+                    Field clusterField = new TextField("cluster", d.get("id"), Field.Store.YES);
+                    // we add the field to the documents List
+                    documents.get(i).add(clusterField);
+                }
         }
     }
 
